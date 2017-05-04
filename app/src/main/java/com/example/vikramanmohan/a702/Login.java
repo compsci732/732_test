@@ -28,8 +28,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         logOutBtn.setOnClickListener(this);
     }
 
-
-
     @Override
     public void onClick(View v) {
 

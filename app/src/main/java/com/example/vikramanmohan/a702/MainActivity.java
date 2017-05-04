@@ -2,6 +2,7 @@ package com.example.vikramanmohan.a702;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,10 @@ import android.widget.TextView;
 import org.fejoa.library.remote.SimpleJsonRemoteJob;
 import org.fejoa.library.support.Task;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
@@ -21,21 +25,24 @@ import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener  {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button loginBtn;
-    EditText etUserName,etPassword;
-    TextView registerLink;
+    EditText etUserName, etPassword;
+    TextView registerLink,etserverconn;
+
+
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
             case R.id.loginBtn:
                 startActivity(new Intent(this,Login.class));
-
                 break;
+
             case R.id.registerLink:
-                startActivity(new Intent(this,Sign_Up.class));
+                startActivity(new Intent(this, Sign_Up.class));
                 break;
 
 
@@ -52,8 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         loginBtn = (Button) findViewById(R.id.loginBtn);
         registerLink = (TextView) findViewById(R.id.registerLink);
         registerLink.setOnClickListener(this);
-
+        loginBtn.setOnClickListener(this);
 
     }
-
 }

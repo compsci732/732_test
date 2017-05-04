@@ -49,4 +49,9 @@
         android:layout_gravity="center_horizontal"
         android:text="Register here if you don't have an account "/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/tvserver"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
 </LinearLayout>
