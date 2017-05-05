@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
+import org.fejoa.library.Client;
+import org.fejoa.library.UserData;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
-    EditText etName, etEmail, etAge;
+    EditText etName, etEmail;
     Button logOutBtn;
 
 
@@ -19,9 +21,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_login);
 
         etName = (EditText) findViewById(R.id.etName);
+        etName.setText(UserData.USER_DATA_CONTEXT.toString());
 
-        etAge = (EditText) findViewById(R.id.etAge);
-        etEmail=(EditText) findViewById(R.id.etEmail);
+
 
         logOutBtn = (Button) findViewById(R.id.logOutBtn);
 
