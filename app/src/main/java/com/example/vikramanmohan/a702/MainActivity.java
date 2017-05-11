@@ -10,13 +10,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.fejoa.library.*;
+import org.fejoa.library.Client;
 import org.fejoa.library.remote.SimpleJsonRemoteJob;
+import org.fejoa.library.support.StorageLib;
 import org.fejoa.library.support.Task;
+import org.fejoa.server.CookiePerPortManager;
+import org.fejoa.server.JettyServer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.CookieHandler;
+import java.net.CookiePolicy;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
@@ -27,9 +34,10 @@ import java.net.URLConnection;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button loginBtn;
-    EditText etUserName, etPassword;
-    TextView registerLink,etserverconn;
+    Button loginBtn,cancelBtn;
+    EditText etPassword;
+    TextView password;
+    private JettyServer server;
 
 
 
@@ -41,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this,Login.class));
                 break;
 
-            case R.id.registerLink:
+            case R.id.cancelBtn:
                 startActivity(new Intent(this, Sign_Up.class));
                 break;
 
@@ -54,12 +62,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        etUserName = (EditText) findViewById(R.id.etUserName);
         etPassword = (EditText) findViewById(R.id.etPassword);
         loginBtn = (Button) findViewById(R.id.loginBtn);
-        registerLink = (TextView) findViewById(R.id.registerLink);
-        registerLink.setOnClickListener(this);
+        cancelBtn = (Button) findViewById(R.id.cancelBtn);
+        cancelBtn.setOnClickListener(this);
         loginBtn.setOnClickListener(this);
 
+
+
+
     }
+
+
 }

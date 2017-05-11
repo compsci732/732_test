@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
-    EditText etName, etEmail, etAge;
+    EditText etName, etEmail;
     Button logOutBtn;
 
 
@@ -18,10 +18,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        etName = (EditText) findViewById(R.id.etName);
 
-        etAge = (EditText) findViewById(R.id.etAge);
-        etEmail=(EditText) findViewById(R.id.etEmail);
+
+
 
         logOutBtn = (Button) findViewById(R.id.logOutBtn);
 
