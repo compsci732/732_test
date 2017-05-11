@@ -1,20 +1,22 @@
 package com.example.vikramanmohan.a702;
 
 import android.content.Intent;
-import android.os.Message;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.PopupWindow;
+
+import org.fejoa.library.Client;
+import org.fejoa.library.crypto.CryptoException;
+
+import java.io.File;
+import java.io.IOException;
 
 public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
 
     Button registerBtn;
-    EditText etName, etAge, etEmail, etuserId, etPassword;
+    EditText etName, etEmail, etuserId, etPassword,etServer;
 
 
     @Override
@@ -22,9 +24,15 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
 
         switch (v.getId()) {
             case  R.id.registerBtn:
-                startActivity(new Intent(this,MainActivity.class));
-                break;
+            try {
+                Client.create(new File("userdata.txt"),null,String.valueOf(etName.getText()),String.valueOf(etServer.getText()),String.valueOf(etuserId.getText()));
 
+            } catch (IOException e) {
+                startActivity(new Intent(this,Login.class));
+            } catch (CryptoException e) {
+                startActivity(new Intent(this,Login.class));
+            }
+                break;
 
         }
 
@@ -36,6 +44,10 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
 
         etName = (EditText) findViewById(R.id.etName);
         etPassword = (EditText) findViewById(R.id.etPassword);
+<<<<<<< HEAD
+=======
+        etServer = (EditText) findViewById(R.id.etServer);
+>>>>>>> d64491d3c8cea5214ee0bf1893025038ef4c7898
         etEmail=(EditText) findViewById(R.id.etEmail);
         etuserId = (EditText) findViewById(R.id.etUserId);
         registerBtn = (Button) findViewById(R.id.registerBtn);

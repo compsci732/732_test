@@ -48,7 +48,11 @@
         android:text="Server" />
 
     <EditText
+<<<<<<< HEAD
         android:id="@+id/editText"
+=======
+        android:id="@+id/etServer"
+>>>>>>> d64491d3c8cea5214ee0bf1893025038ef4c7898
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
